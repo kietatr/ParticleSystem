@@ -1,24 +1,37 @@
 PVector gravity;
-ArrayList<Firework> fireworks = new ArrayList<Firework>();
+int numOfParticles;
+ArrayList<Particle> particles = new ArrayList<Particle>();
 
 void setup()
 {
-  size(600, 400);
+  size(400, 700);
   gravity = new PVector(0, 0.3);
+  
+  numOfParticles = 150;
+  
+  for (int i = 0; i < numOfParticles; i++)
+  {
+    PVector pos = new PVector(width/2, height/2);
+    PVector vel = new PVector(random(-3, 3), random(-15, -7));
+    float diameter = random(1, 10);
+    Particle p = new Particle(pos, vel, diameter);
+    particles.add(p);
+  }
 }
 
 void draw()
 {
   redrawTransparentBackground();
-  
-  if (random(1) < 0.5)
+  for (Particle p : particles)
   {
-    fireworks.add(new Firework());
-  }
-  
-  for (Firework firework : fireworks)
-  {
-    firework.draw();
+    p.addForce(gravity);
+    p.draw();
+    
+    if(p.pos.y > (height - random(3, 5)))
+    {
+      p.pos = new PVector(width/2, height/2);
+      p.vel = new PVector(random(-3, 3), random(-15, -7));
+    }
   }
 }
 
