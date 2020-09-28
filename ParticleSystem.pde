@@ -37,7 +37,7 @@ void draw()
     p.addForce(gravity);
     p.draw();
     
-    if(p.pos.y > height+40)
+    if(p.pos.y > height+600)
     {
       p.pos = new PVector(width/2, height/2);
       p.vel = new PVector(random(-2, 2), random(-15, -14));
