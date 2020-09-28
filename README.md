@@ -1,3 +1,3 @@
-# ParticleSystem-Fireworks
+# Particle System
 
-Implementing a fireworks effect in Processing, using the particle system approach.
+Implementing a particle system in Processing.
