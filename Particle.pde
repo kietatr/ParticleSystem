@@ -24,8 +24,6 @@ class Particle
     vel.add(acc);
     pos.add(vel);
     acc.mult(0);
-    
-    fill(0, 100, 255);
     ellipse(pos.x, pos.y, diameter, diameter);
   }
 }
